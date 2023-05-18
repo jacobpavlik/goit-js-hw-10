@@ -7,6 +7,7 @@ const searchBox = document.querySelector('#search-box');
 const searchBoxText = searchBox.value.trim(); //nie działa !!
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
+
 console.log(countryInfo);
 console.log(countryList);
 
@@ -17,10 +18,21 @@ function handleInput() {
   console.log(countryName);
   console.log(countryPath);
   fetchCountries(countryPath)
-    .then(data => {
-      console.log(data);
+    .then(countries => {
+      console.log('z index data', countries);
+      countries.forEach((country, countryIndex) => {
+        console.log(`Name: ${countries[countryIndex].name.official}`);
+        console.log(`Capital: ${countries[countryIndex].capital}`);
+        console.log(`Population: ${countries[countryIndex].population}`);
+        console.log(`Flag: ${countries[countryIndex].flags.svg}`);
+        console.log(`Language: ${countries[countryIndex].languages.value}`);
+        console.log(`Language: ${countries[countryIndex].languages}`);
+        // console.log(country, countryIndex);
+      });
     })
-    .catch(err => Notiflix.Notify.failure(`err.toString ${err}`));
+    .catch(err =>
+      Notiflix.Notify.failure('Oops, there is no country with that name')
+    );
 }
 searchBox.addEventListener(
   'input',

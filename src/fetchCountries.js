@@ -9,17 +9,17 @@ export function fetchCountries(name) {
           return response.json();
         }
       })
-      .then(data => {
-        resolve(data);
+      .then(countries => {
+        resolve(countries);
         // console.log(JSON.parse(data));
-        console.log('data', data);
-        console.log('data[0]', data[0]);
-        console.log(`Name: ${data[0].name.official}`);
-        console.log(`Capital: ${data[0].capital}`);
-        console.log(`Population: ${data[0].population}`);
-        console.log(`Flag: ${data[0].flags.svg}`);
-        console.log(`Language: ${data[0].languages}`);
-        console.log(`Language: ${data[0].languages}`);
+        // console.log('z fetch data', countries);
+        // console.log('data[0]', countries[0]);
+        // console.log(`Name: ${countries[0].name.official}`);
+        // console.log(`Capital: ${countries[0].capital}`);
+        // console.log(`Population: ${countries[0].population}`);
+        // console.log(`Flag: ${countries[0].flags.svg}`);
+        // console.log(`Language: ${countries[0].languages.value}`);
+        // console.log(`Language: ${countries[0].languages}`);
       })
       .catch(err => {
         console.log('err', err);

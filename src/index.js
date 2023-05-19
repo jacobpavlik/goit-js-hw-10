@@ -20,15 +20,26 @@ function handleInput() {
   fetchCountries(countryPath)
     .then(countries => {
       console.log('z index data', countries);
-      countries.forEach((country, countryIndex) => {
-        console.log(`Name: ${countries[countryIndex].name.official}`);
-        console.log(`Capital: ${countries[countryIndex].capital}`);
-        console.log(`Population: ${countries[countryIndex].population}`);
-        console.log(`Flag: ${countries[countryIndex].flags.svg}`);
-        console.log(`Language: ${countries[countryIndex].languages.value}`);
-        console.log(`Language: ${countries[countryIndex].languages}`);
-        // console.log(country, countryIndex);
-      });
+      if (countries.length === 1) {
+        countries.forEach((country, countryIndex) => {
+          console.log(`Name: ${countries[countryIndex].name.official}`);
+          console.log(`Capital: ${countries[countryIndex].capital}`);
+          console.log(`Population: ${countries[countryIndex].population}`);
+          console.log(`Flag: ${countries[countryIndex].flags.svg}`);
+          console.log(`Language: ${countries[countryIndex].languages.value}`);
+          console.log(`Language: ${countries[countryIndex].languages}`);
+          console.log(`countries length: ${countries.length}`);
+        });
+      } else if (countries.length > 9) {
+        Notiflix.Notify.info(
+          'Too many matches found. Please enter a more specific name.'
+        );
+      } else {
+        countries.forEach((country, countryIndex) => {
+          console.log(`Flag: ${countries[countryIndex].flags.svg}`);
+          console.log(`Name: ${countries[countryIndex].name.official}`);
+        });
+      }
     })
     .catch(err =>
       Notiflix.Notify.failure('Oops, there is no country with that name')

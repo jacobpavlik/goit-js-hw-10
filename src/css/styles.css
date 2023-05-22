@@ -32,3 +32,14 @@ body {
 .country-list__image {
   border: solid 1px black;
 }
+
+.country-info {
+  font-size: 24px;
+}
+.country-info__name {
+  font-size: 30px;
+  margin-left: 20px;
+}
+.country-info__title {
+  font-weight: 700;
+}

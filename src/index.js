@@ -32,14 +32,18 @@ function handleInput() {
             'beforeend',
             `<img src="${countries[countryIndex].flags.svg}" alt="${
               countries[countryIndex].flags.alt
-            }" width="90" height="57"/><span>${
+            }" width="180" height="110"/><span class=country-info__name>${
               countries[countryIndex].name.official
             }</span>
-          <p>Capital: ${countries[countryIndex].capital}</p>
-          <p>Population: ${countries[countryIndex].population}</p>
-          <p>Language: ${Object.values(countries[countryIndex].languages).join(
-            ', '
-          )}</p>
+          <p><span class="country-info__title">Capital:</span> ${
+            countries[countryIndex].capital
+          }</p>
+          <p><span class="country-info__title">Population:</span> ${
+            countries[countryIndex].population
+          }</p>
+          <p><span class="country-info__title">Language:</span> ${Object.values(
+            countries[countryIndex].languages
+          ).join(', ')}</p>
 
           `
           );
